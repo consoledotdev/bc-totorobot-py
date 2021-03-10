@@ -1,0 +1,6 @@
+.github
+.python_packages
+.pytest_cache
+.venv
+.vscode
+tests
