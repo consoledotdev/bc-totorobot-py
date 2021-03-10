@@ -23,7 +23,7 @@ jobs:
                   creds: ${{ secrets.AZURE_CREDENTIALS }}
 
             - name: Setup Python Environment
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v2.2.1
               with:
                   python-version: ${{ env.PYTHON_VERSION }}
 
