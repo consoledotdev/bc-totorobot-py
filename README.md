@@ -29,6 +29,8 @@ az ad sp create-for-rbac --name "bc-totorobot-py - GitHub" --sdk-auth --role con
     --scopes /subscriptions/244fa449-6833-417a-9b8e-be5a66bdf344/resourceGroups/bc-totorobot-py
 ```
 
+`AZURE_FUNCTIONAPP_PUBLISH_PROFILE` set up [according to the docs](https://github.com/marketplace/actions/azure-functions-action#using-publish-profile-as-deployment-credential-recommended).
+
 ### Manual
 
 [Install Bicep](https://github.com/Azure/bicep/blob/main/docs/installing.md)
