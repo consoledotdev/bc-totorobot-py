@@ -22,14 +22,11 @@ and [Login](https://github.com/marketplace/actions/azure-login) GitHub actions
 to deploy.
 
 `AZURE_CREDENTIALS` created as per [the service principal
-instructions](https://github.com/marketplace/actions/azure-login#configure-deployment-credentials).
-
-`AZURE_FUNCTIONAPP_PUBLISH_PROFILE` created as per the [publish profile
-instructions](https://github.com/marketplace/actions/azure-functions-action#using-publish-profile-as-deployment-credential-recommended).
+instructions](https://github.com/marketplace/actions/azure-login#configure-deployment-credentials):
 
 ```zsh
 az ad sp create-for-rbac --name "bc-totorobot-py - GitHub" --sdk-auth --role contributor \
-    --scopes /subscriptions/244fa449-6833-417a-9b8e-be5a66bdf344/resourceGroups/bc-totorobot
+    --scopes /subscriptions/244fa449-6833-417a-9b8e-be5a66bdf344/resourceGroups/bc-totorobot-py
 ```
 
 ### Manual
@@ -66,10 +63,11 @@ or [NPM](https://www.npmjs.com/package/azurite)) is required for running the
 Azure Functions server locally.
 
 ```zsh
+# Set these values appropriately
 export CAMPFIRE_ROOM=""
 export MAILCHIMP_API_KEY=""
 export MAILCHIMP_LIST_ID="" 
-func start
+func host start
 ```
 
 ### Trigger timer function

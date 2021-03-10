@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
-      uses: actions/setup-python@v2.1.2
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
@@ -24,13 +24,13 @@ jobs:
       shell: bash
       run: |
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
         popd
 
     - name: Test with pytest
       run: |
-        python3 -m pytest
+        python -m pytest
 
     - name: Lint with flake8
       run: |

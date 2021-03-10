@@ -22,7 +22,7 @@ jobs:
               with:
                   creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-            - name: Setup Python Environment
+            - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
               uses: actions/setup-python@v2
               with:
                   python-version: ${{ env.PYTHON_VERSION }}
@@ -32,17 +32,17 @@ jobs:
               run: |
                   pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
                   python -m pip install --upgrade pip
-                  pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+                  pip install -r requirements.txt
                   popd
 
             - name: Test with pytest
               run: |
                   python -m pytest
-            
+
             - name: Lint with flake8
               run: |
                   pip install flake8
-                  flake8 . --exclude=.python_packages/*
+                  flake8 .
 
             - name: Setup Bicep
               uses: anthony-c-martin/setup-bicep@v0.1
