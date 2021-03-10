@@ -37,6 +37,9 @@ jobs:
 
             - name: Test with pytest
               run: |
+                  export CAMPFIRE_ROOM=""
+                  export MAILCHIMP_API_KEY=""
+                  export MAILCHIMP_LIST_ID=""
                   python -m pytest
 
             - name: Lint with flake8
