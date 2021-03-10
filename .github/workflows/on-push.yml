@@ -27,7 +27,7 @@ jobs:
               with:
                   python-version: ${{ env.PYTHON_VERSION }}
 
-            - name: Install pip dependencies
+            - name: Install pip dependencies for testing
               shell: bash
               run: |
                   pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
@@ -46,6 +46,14 @@ jobs:
               run: |
                   pip install flake8
                   flake8 .
+
+            - name: Install pip dependencies for deployment
+              shell: bash
+              run: |
+                  pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+                  popd
 
             - name: Setup Bicep
               uses: anthony-c-martin/setup-bicep@v0.1
