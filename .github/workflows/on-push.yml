@@ -4,6 +4,8 @@ on:
     push:
         branches:
             - main
+            
+    workflow_dispatch: true
 
 env:
   AZURE_FUNCTIONAPP_NAME: bc-totorobot-py
