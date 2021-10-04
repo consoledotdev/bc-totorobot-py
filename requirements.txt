@@ -1,5 +1,5 @@
 azure-functions
-coverage==5.5
+coverage==6.0
 mailchimp-marketing==3.0.64
 pytest==6.2.5
 requests==2.26.0
